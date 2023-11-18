@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Your shopping list</h1>
+    <button class="btn btn-clear" id="clear-button">Clear list</button>
+    <form>
+        <label id="addProductForm">
+            Name:
+            <input type="text"/>
+        </label>
+        <label>
+            Quantity:
+            <input type="number">
+        </label>
+        <button class="btn btn-add">Add</button>
+    </form>
+    <div id="allProducts"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

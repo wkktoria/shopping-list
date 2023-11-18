@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.btn {
+    color: #fff;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-add {
+    background-color: rgb(26, 109, 45)
+}
+
+.btn-clear {
+    background-color: #e0a800;
+}
+
+.btn-delete {
+    background: #c82333;;
+}
+
+.container {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#allProducts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    padding: 8px;
+}
