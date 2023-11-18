@@ -1,13 +1,12 @@
 package io.github.wkktoria.product;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer quantity;
@@ -15,6 +14,12 @@ public class Product {
 
     public Product() {
 
+    }
+
+    public Product(String name, Integer quantity, Boolean bought) {
+        this.name = name;
+        this.quantity = quantity;
+        this.bought = bought;
     }
 
     public Product(Integer id, String name, Integer quantity, Boolean bought) {

@@ -3,6 +3,30 @@ const PRODUCTS_API_URL = `${API_URL}/products`;
 
 getProducts()
 
+const addProductForm = document.getElementById('addProductForm');
+const addProductBtn = document.getElementById('addProductBtn');
+
+addProductBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const formObj = {
+        name: addProductForm.elements.name.value,
+        quantity: addProductForm.elements.quantity.value
+    };
+
+    fetch(PRODUCTS_API_URL, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, body: JSON.stringify(formObj)
+    })
+        .then(processOkResponse)
+        .then(createProduct)
+        .then(() => addProductForm.reset())
+        .catch(console.warn);
+});
+
 function getProducts() {
     fetch(PRODUCTS_API_URL)
         .then(processOkResponse)

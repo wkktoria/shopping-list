@@ -36,4 +36,14 @@ public class ProductServlet extends HttpServlet {
         resp.setContentType("application/json;charset=UTF-8");
         mapper.writeValue(resp.getOutputStream(), service.findAll());
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("Got request with parameters: " + req.getParameterMap());
+
+        var product = mapper.readValue(req.getInputStream(), ProductDTO.class);
+
+        resp.setContentType("application/json;charset=UTF-8");
+        mapper.writeValue(resp.getOutputStream(), service.addProduct(product));
+    }
 }

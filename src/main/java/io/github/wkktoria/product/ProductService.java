@@ -16,4 +16,8 @@ class ProductService {
     List<Product> findAll() {
         return repository.findAll();
     }
+
+    Product addProduct(ProductDTO productDTO) {
+        return repository.addProduct(productDTO);
+    }
 }

@@ -9,16 +9,16 @@
 <div class="container">
     <h1>Your shopping list</h1>
     <button class="btn btn-clear" id="clear-button">Clear list</button>
-    <form>
-        <label id="addProductForm">
+    <form id="addProductForm">
+        <label>
             Name:
-            <input type="text"/>
+            <input name="name" type="text"/>
         </label>
         <label>
             Quantity:
-            <input type="number">
+            <input name="quantity" type="number">
         </label>
-        <button class="btn btn-add">Add</button>
+        <button class="btn btn-add" id="addProductBtn">Add</button>
     </form>
     <div id="allProducts"></div>
 </div>
