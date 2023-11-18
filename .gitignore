@@ -1,3 +1,7 @@
+flyway.conf
+db.mv.db
+db.trace.db
+
 ### Java ###
 # Compiled class file
 *.class
