@@ -46,4 +46,22 @@ public class ProductServlet extends HttpServlet {
         resp.setContentType("application/json;charset=UTF-8");
         mapper.writeValue(resp.getOutputStream(), service.addProduct(product));
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
+        logger.info("Got request with parameters: " + req.getParameterMap());
+
+        String pathInfo = req.getPathInfo();
+
+        try {
+            var productId = Integer.valueOf(pathInfo.replace("/", ""));
+            if (service.deleteProduct(productId)) {
+                resp.setStatus(204);
+            } else {
+                resp.setStatus(400);
+            }
+        } catch (NumberFormatException e) {
+            logger.warn("Wrong path used: " + pathInfo);
+        }
+    }
 }

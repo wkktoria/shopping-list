@@ -30,4 +30,22 @@ class ProductRepository {
 
         return product;
     }
+
+    boolean deleteProduct(Integer id) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+
+        var product = session.get(Product.class, id);
+
+        if (product != null) {
+            session.remove(product);
+            transaction.commit();
+
+            return true;
+        }
+
+        session.close();
+
+        return false;
+    }
 }

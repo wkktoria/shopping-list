@@ -20,4 +20,8 @@ class ProductService {
     Product addProduct(ProductDTO productDTO) {
         return repository.addProduct(productDTO);
     }
+
+    boolean deleteProduct(Integer id) {
+        return repository.deleteProduct(id);
+    }
 }
