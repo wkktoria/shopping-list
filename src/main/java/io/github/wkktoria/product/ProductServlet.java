@@ -49,7 +49,7 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Got request with parameters: " + req.getParameterMap());
+        logger.info("Got request with parameters: " + req.getParameterMap() + ", and path: " + req.getPathInfo());
 
         String pathInfo = req.getPathInfo();
 
@@ -60,6 +60,23 @@ public class ProductServlet extends HttpServlet {
             } else {
                 resp.setStatus(400);
             }
+        } catch (NumberFormatException e) {
+            logger.warn("Wrong path used: " + pathInfo);
+        }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("Got request with parameters: " + req.getParameterMap() + ", and path: " + req.getPathInfo());
+
+        String pathInfo = req.getPathInfo();
+
+        try {
+            var productId = Integer.valueOf(pathInfo.replace("/", ""));
+            var product = service.toggleBought(productId);
+
+            resp.setContentType("application/json;charset=UTF-8");
+            mapper.writeValue(resp.getOutputStream(), product);
         } catch (NumberFormatException e) {
             logger.warn("Wrong path used: " + pathInfo);
         }

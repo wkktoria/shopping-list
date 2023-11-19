@@ -24,4 +24,8 @@ class ProductService {
     boolean deleteProduct(Integer id) {
         return repository.deleteProduct(id);
     }
+
+    Product toggleBought(Integer id) {
+        return repository.toggleBought(id);
+    }
 }

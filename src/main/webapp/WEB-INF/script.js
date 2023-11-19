@@ -30,8 +30,13 @@ function addProduct(product) {
 
     hName.textContent = `${product.name}`;
 
+    if (product.bought) {
+        hName.classList.add('line-through');
+    }
+
     pQuantity.textContent = `x${product.quantity}`;
 
+    checkbox.classList.add('checkbox-toggle')
     checkbox.type = 'checkbox';
     checkbox.checked = product.bought;
 
@@ -66,6 +71,7 @@ productsCollection.addEventListener('click', (event) => {
     event.preventDefault();
 
     let deleteButtonPressed = event.target.className === 'btn btn-delete';
+    let toggleClicked = event.target.className === 'checkbox-toggle';
 
     if (deleteButtonPressed) {
         let id = event.target.parentElement.dataset.id;
@@ -75,9 +81,25 @@ productsCollection.addEventListener('click', (event) => {
         }).then(processOkResponse)
             .then(fetchProducts);
     }
-});
 
-console.log(productsCollection.children)
+    if (toggleClicked) {
+        let id = event.target.parentElement.dataset.id;
+
+        fetch(`${PRODUCTS_API_URL}/${id}`, {
+            method: 'PUT'
+        }).then(processOkResponse)
+            .then(product => {
+                event.target.checked = !!product.bought;
+                let hName = event.target.parentElement.firstChild;
+
+                if (event.target.checked) {
+                    hName.classList.add('line-through')
+                } else {
+                    hName.classList.remove('line-through');
+                }
+            });
+    }
+});
 
 clearListBtn.addEventListener('click', (event) => {
     event.preventDefault();

@@ -48,4 +48,18 @@ class ProductRepository {
 
         return false;
     }
+
+    Product toggleBought(Integer id) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+
+        var product = session.get(Product.class, id);
+
+        product.setBought(!product.getBought());
+
+        transaction.commit();
+        session.close();
+
+        return product;
+    }
 }
