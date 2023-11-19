@@ -3,6 +3,7 @@ const PRODUCTS_API_URL = `${API_URL}/products`;
 
 const addProductForm = document.getElementById('addProductForm');
 const productsCollection = document.getElementById('allProducts');
+const clearListBtn = document.getElementById('clear-button');
 
 fetchProducts();
 
@@ -73,6 +74,23 @@ productsCollection.addEventListener('click', (event) => {
             method: 'DELETE'
         }).then(processOkResponse)
             .then(fetchProducts);
+    }
+});
+
+console.log(productsCollection.children)
+
+clearListBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    while (productsCollection.firstChild) {
+        let id = productsCollection.firstChild.dataset.id;
+
+        fetch(`${PRODUCTS_API_URL}/${id}`, {
+            method: 'DELETE'
+        }).then(processOkResponse)
+            .then(fetchProducts);
+
+        productsCollection.removeChild(productsCollection.firstChild);
     }
 });
 
