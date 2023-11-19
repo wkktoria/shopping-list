@@ -2,7 +2,30 @@
 
 > **_NOTE:_**  Frontend is not connected to Jetty and has to be started separately.
 
-## Setup
+# Table of Contents
+
+1. [Demo](#demo)
+2. [Setup](#setup)
+
+# Demo
+
+## Adding product
+
+![Adding product](gifs/add-product.gif)
+
+## Deleting product
+
+![Deleting product](gifs/delete-product.gif)
+
+## Deleting all products
+
+![Deleting all products](gifs/delete-all-products.gif)
+
+## Toggling if product is bought
+
+![Toggling product](gifs/toggle-product.gif)
+
+# Setup
 
 1. Set port where server starts in VM options: `-Dport=PORT`.
 2. Create Flyway configuration file. See [flyway-example.conf](flyway-example.conf).
