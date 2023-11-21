@@ -39,9 +39,14 @@ class MockRepository extends ProductRepository {
     }
 
     @Override
-    Product toggleBought(Integer id) {
-        var product = products.get(id);
-        products.get(id).setBought(!product.getBought());
+    Product findById(Integer id) {
+        return products.get(id);
+    }
+
+    @Override
+    Product updateBought(Product product) {
+        product.setBought(!product.getBought());
+        products.get(product.getId()).setBought(product.getBought());
 
         return product;
     }
