@@ -1,11 +1,10 @@
 # Shopping List
 
-> **_NOTE:_**  Frontend is not connected to Jetty and has to be started separately.
-
 # Table of Contents
 
 1. [Demo](#demo)
 2. [Setup](#setup)
+3. [Cautions](#cautions)
 
 # Demo
 
@@ -34,3 +33,8 @@
     - `-Dhibernate_url=URL`
     - `-Dhibernate_username=USERNAME`
     - `-Dhibernate_password=PASSWORD`
+
+# Cautions
+
+- ⚠️ Frontend is not connected to Jetty and has to be started separately.
+- ⚠️ `mvn package` won't create valid jar/war file.
