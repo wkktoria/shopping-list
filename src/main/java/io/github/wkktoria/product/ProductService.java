@@ -26,6 +26,7 @@ class ProductService {
     }
 
     Product toggleBought(Integer id) {
-        return repository.toggleBought(id);
+        var product = repository.findById(id);
+        return repository.updateBought(product);
     }
 }

@@ -49,13 +49,24 @@ class ProductRepository {
         return false;
     }
 
-    Product toggleBought(Integer id) {
+    Product findById(Integer id) {
         var session = HibernateUtil.getSessionFactory().openSession();
         var transaction = session.beginTransaction();
 
         var product = session.get(Product.class, id);
 
+        transaction.commit();
+        session.close();
+
+        return product;
+    }
+
+    Product updateBought(Product product) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+
         product.setBought(!product.getBought());
+        session.merge(product);
 
         transaction.commit();
         session.close();
