@@ -1,4 +1,4 @@
-package io.github.wkktoria.product;
+package io.github.wkktoria.shopping_list.product;
 
 import java.util.List;
 

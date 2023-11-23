@@ -1,7 +1,7 @@
-package io.github.wkktoria;
+package io.github.wkktoria.shopping_list;
 
-import io.github.wkktoria.product.ProductServlet;
-import io.github.wkktoria.utils.HibernateUtil;
+import io.github.wkktoria.shopping_list.product.ProductServlet;
+import io.github.wkktoria.shopping_list.utils.HibernateUtil;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.util.component.LifeCycle;
@@ -24,7 +24,7 @@ class App {
                 HibernateUtil.close();
             }
         });
-        
+
         handler.addServletWithMapping(ProductServlet.class, "/api/products/*");
 
         server.start();

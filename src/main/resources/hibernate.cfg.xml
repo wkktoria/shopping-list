@@ -29,7 +29,7 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="io.github.wkktoria.product.Product"/>
+        <mapping class="io.github.wkktoria.shopping_list.product.Product"/>
 
     </session-factory>
 

@@ -1,4 +1,4 @@
-package io.github.wkktoria.utils;
+package io.github.wkktoria.shopping_list.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

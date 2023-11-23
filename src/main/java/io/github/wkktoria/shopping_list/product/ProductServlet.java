@@ -1,4 +1,4 @@
-package io.github.wkktoria.product;
+package io.github.wkktoria.shopping_list.product;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.annotation.WebServlet;

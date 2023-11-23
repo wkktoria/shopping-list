@@ -1,6 +1,6 @@
-package io.github.wkktoria.product;
+package io.github.wkktoria.shopping_list.product;
 
-import io.github.wkktoria.utils.HibernateUtil;
+import io.github.wkktoria.shopping_list.utils.HibernateUtil;
 
 import java.util.List;
 
